@@ -40,7 +40,7 @@ function insert($values)
     $params = [
         'valueInputOption' => "RAW"
     ];
-    $service->spreadsheets_values->append(spreadsheetId(), "A2:E", $body, $params);
+    $service->spreadsheets_values->append(spreadsheetId(), $body, $params);
 }
 
 function get_item()
