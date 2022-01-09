@@ -197,11 +197,11 @@
             }
         </style>
     </head>
-    <?php 
-        include('controller.php'); 
-        if(isset($_POST['submit'])){
-            insert($_POST);
-        }    
+    <?php
+    include('controller.php');
+    if (isset($_POST['submit'])) {
+        insert($_POST);
+    }
     ?>
 
     <body>
@@ -238,7 +238,55 @@
                 <div class="text-center">
                     <button class="submit" name="submit">บันทึก</button>
                 </div>
-                <input name="date" type="hidden" value="<?=today()?>"><br>
+                <input name="date" type="hidden" value="<?= today() ?>"><br>
             </form>
+            <hr>
+            <br>
+            <center>
+                <table border="1" cellspacing="0" style="border-color:#fff" width="90%">
+                    <thead>
+                        <tr>
+                            <th>สินค้า</th>
+                            <th>ต้นทุน</th>
+                            <th>ขาย</th>
+                            <th>จำนวน</th>
+                        </tr>
+                    </thead>
+                    <tbody align="center">
+                        <?php
+                        $budget = 0;
+                        $sold = 0;
+                        ?>
+                        <?php foreach (read("A1229:E") as $key) : ?>
+                            <?php if (isset($key[0]) && $key[4] == today()) : ?>
+                                <?php
+                                $budget += (int)$key[1];
+                                $sold += (int)$key[2];
+                                ?>
+                                <tr>
+                                    <td><?= $key[0] ?></td>
+                                    <td><?= $key[1] ?></td>
+                                    <td><?= $key[2] ?></td>
+                                    <td><?= $key[3] ?></td>
+                                </tr>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <table>
+                    <tr>
+                        <td>ต้นทุน</td>
+                        <td><?= $budget ?></td>
+                    </tr>
+                    <tr>
+                        <td>ขาย</td>
+                        <td><?= $sold ?></td>
+                    </tr>
+                    <tr>
+                        <td>กำไร</td>
+                        <td><?= $sold - $budget ?></td>
+                    </tr>
+                </table>
+            </center>
         </div>
     </body>
