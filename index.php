@@ -23,7 +23,7 @@
                 border-radius: 0.5em;
                 box-shadow: 0 0 1em 0 rgba(51, 51, 51, 0.25);
                 display: block;
-                max-width: 480px;
+                max-width: 880px;
                 overflow: hidden;
                 -webkit-transform: translate(-50%, -50%);
                 -ms-transform: translate(-50%, -50%);
@@ -68,8 +68,8 @@
             form button.submit {
                 background: rgba(255, 255, 255, 0.25);
                 border: 1px solid #333;
-                line-height: 1em;
-                padding: 0.5em 0.5em;
+                line-height: 2em;
+                padding: 2em 2em;
                 -webkit-transition: all 0.25s;
                 transition: all 0.25s;
             }
@@ -123,7 +123,7 @@
             form label {
                 border-bottom: 1px solid #333;
                 display: block;
-                font-size: 1.25em;
+                font-size: 2.25em;
                 margin-bottom: 0.5em;
                 -webkit-transition: all 0.25s;
                 transition: all 0.25s;
@@ -166,73 +166,6 @@
                 transition: all 0.25s;
             }
 
-            form label.checkbox {
-                border-bottom: 0;
-                text-align: center;
-            }
-
-            form label.checkbox input {
-                display: none;
-            }
-
-            form label.checkbox span {
-                font-size: 0.5em;
-            }
-
-            form label.checkbox span:before {
-                content: '\e157';
-                display: inline-block;
-                font-family: 'Glyphicons Halflings';
-                font-size: 1.125em;
-                padding-right: 0.25em;
-                position: relative;
-                top: 1px;
-            }
-
-            form label.checkbox input:checked+span:before {
-                content: '\e067';
-            }
-
-            form label.invalid {
-                border-color: #c0392b !important;
-            }
-
-            form label.invalid span.label-text {
-                color: #c0392b;
-            }
-
-            form label.password {
-                position: relative;
-            }
-
-            form label.password button.toggle-visibility {
-                background: none;
-                border: none;
-                cursor: pointer;
-                font-size: 0.75em;
-                line-height: 1em;
-                position: absolute;
-                top: 50%;
-                right: 0.5em;
-                text-align: center;
-                -webkit-transform: translateY(-50%);
-                -ms-transform: translateY(-50%);
-                transform: translateY(-50%);
-                -webkit-transition: all 0.25s;
-                transition: all 0.25s;
-            }
-
-            form label.password button.toggle-visibility:hover,
-            form label.password button.toggle-visibility:focus,
-            form label.password button.toggle-visibility:active {
-                color: #000;
-                outline: none;
-            }
-
-            form label.password button.toggle-visibility span {
-                vertical-align: middle;
-            }
-
             h1 {
                 font-size: 3em;
                 margin: 0 0 0.5em 0;
@@ -248,7 +181,7 @@
             }
 
             html {
-                font-size: 18px;
+                font-size: 24px;
                 height: 100%;
             }
 
@@ -260,7 +193,7 @@
                 background: transparent;
                 border: none;
                 width: 200px;
-                padding-top: 5px;
+                padding-top: 10px;
             }
         </style>
     </head>
@@ -308,50 +241,4 @@
                 <input name="date" type="hidden" value="<?=today()?>"><br>
             </form>
         </div>
-        <center style="padding-top: 700px;">
-        <table border="1" style="background-color: white;">
-            <thead>
-                <tr>
-                    <th>สินค้า</th>
-                    <th>ต้นทุน</th>
-                    <th>ขาย</th>
-                    <th>จำนวน</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $budget = 0;
-                    $sold = 0;
-                    ?>
-                <?php foreach(read("A1229:E") AS $key) : ?>
-                <?php if(isset($key[0])) : ?>
-                <?php
-                    $budget += (int)$key[1];
-                    $sold += (int)$key[2];
-                    ?>
-                <tr>
-                    <td><?=$key[0]?></td>
-                    <td><?=$key[1]?></td>
-                    <td><?=$key[2]?></td>
-                    <td><?=$key[3]?></td>
-                </tr>
-                <?php endif; ?>
-                <?php endforeach ;?>
-            </tbody>
-        </table>
-        <table>
-            <tr>
-                <td>ต้นทุน</td>
-                <td><?=$budget?></td>
-            </tr>
-            <tr>
-                <td>ขาย</td>
-                <td><?=$sold?></td>
-            </tr>
-            <tr>
-                <td>กำไร</td>
-                <td><?=$sold-$budget?></td>
-            </tr>
-        </table>
-        </center>
     </body>
