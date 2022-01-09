@@ -17,19 +17,34 @@ if(isset($_POST['submit'])){
 }
 ?>
 <html>
-    <head></head>
+    <head>
+        <title>บันทึกการขาย</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .size{
+                width: 30vw;
+                height: 150px;
+                font-size: 35px;
+                border-color: #9bc2af;
+            }
+            .submit{
+                background-color: #9bc2af;
+                border-color: none;
+            }
+        </style>
+    </head>
     <body>
         <form action="#" method="post">
-            <select name="item">
+            <select name="item" class="size">
                 <?php foreach(get_item() AS $key) : ?>
                 <option value="<?=$key[0]?>"><?=$key[0]?></option>
                 <?php endforeach ; ?>
             </select>
-            <input name="budget" type="number" placeholder="ต้นทุน"><br>
-            <input name="sold" type="number" placeholder="ขาย">
-            <input name="amount" type="number" value="1" step="1">
-            <input name="date" type="hidden" value="<?=today()?>">
-            <input type="submit" value="บันทึก">
+            <input name="budget" type="number" placeholder="ต้นทุน" class="size"><br>
+            <input name="sold" type="number" placeholder="ขาย" class="size">
+            <input name="amount" type="number" value="1" step="1" class="size">
+            <input name="date" type="hidden" value="<?=today()?>"><br>
+            <input type="submit" value="บันทึก" class="size submit">
         </form>
         <hr>
         <table border="1">
