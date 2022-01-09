@@ -23,9 +23,9 @@ if(isset($_POST['submit'])){
         <meta name="HandheldFriendly" content="true" />
         <style>
             .size{
-                width: 45vw;
-                height: 120px;
-                font-size: 35px;
+                width: 50vw;
+                height: 80px;
+                font-size: 30px;
                 border-color: #9bc2af;
             }
             .submit{
@@ -45,7 +45,9 @@ if(isset($_POST['submit'])){
             <input name="sold" type="number" placeholder="ขาย" class="size">
             <input name="amount" type="number" value="1" step="1" class="size">
             <input name="date" type="hidden" value="<?=today()?>"><br>
-            <input type="submit" value="บันทึก" class="size submit">
+            <center>
+                <input type="submit" value="บันทึก" class="size submit">
+            </center>
         </form>
         <hr>
         <table border="1">
