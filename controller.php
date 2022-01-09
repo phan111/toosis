@@ -22,4 +22,43 @@ function read($range)
     $response = $service->spreadsheets_values->get(spreadsheetId(), $range);
     return $response->getValues();
 }
+
+function insert($values)
+{
+    $service = conn_sheet();
+    $item = $values['item'];
+    $budget = $values['budget'];
+    $sold = $values['sold'];
+    $amount = $values['amount'];
+    $date = $values['date'];
+    $insert = [
+        ["$item", "$budget", "$sold", "$amount", "$date"]
+    ];
+    $body = new Google_Service_Sheets_ValueRange([
+        'values' => $insert
+    ]);
+    $params = [
+        'valueInputOption' => "RAW"
+    ];
+    $service->spreadsheets_values->append(spreadsheetId(), "A2:L", $body, $params);
+}
+
+function get_item()
+{
+    $service = conn_sheet();
+    $range = "รายการสินค้า!B1:B";
+    $response = $service->spreadsheets_values->get(spreadsheetId(), $range);
+    return $response->getValues();
+}
+
+function today()
+{
+    date_default_timezone_set("Asia/Bangkok");
+    return date('d/m/Y');
+}
+
+function test()
+{
+    print_r($_POST);
+}
 ?>
