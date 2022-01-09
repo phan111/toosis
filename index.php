@@ -19,11 +19,12 @@ if(isset($_POST['submit'])){
 <html>
     <head>
         <title>บันทึกการขาย</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="HandheldFriendly" content="true" />
         <style>
             .size{
-                width: 30vw;
-                height: 150px;
+                width: 45vw;
+                height: 120px;
                 font-size: 35px;
                 border-color: #9bc2af;
             }
