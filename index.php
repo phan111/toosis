@@ -68,10 +68,11 @@
             form button.submit {
                 background: rgba(255, 255, 255, 0.25);
                 border: 1px solid #333;
-                line-height: 2em;
-                padding: 2em 2em;
+                line-height: 0.25em;
+                padding: 1em 3em;
                 -webkit-transition: all 0.25s;
                 transition: all 0.25s;
+                font-size: 36px;
             }
 
             form button:hover,
@@ -243,7 +244,7 @@
             <hr>
             <br>
             <center>
-                <table border="1" cellspacing="0" style="border-color:#fff" width="90%">
+                <table border="1" cellspacing="0" style="border-color:#fff;font-size:28px;background: rgba(255, 255, 255, 0.25);" width="90%">
                     <thead>
                         <tr>
                             <th>สินค้า</th>
@@ -273,18 +274,19 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <table>
+                <br>
+                <table style="font-size: 28px;background: rgba(255, 255, 255, 0.25);padding: 5px 25px;border-radius:5px;">
                     <tr>
                         <td>ต้นทุน</td>
-                        <td><?= $budget ?></td>
+                        <td><b><?= $budget ?></b></td>
                     </tr>
                     <tr>
                         <td>ขาย</td>
-                        <td><?= $sold ?></td>
+                        <td><b><?= $sold ?></b></td>
                     </tr>
                     <tr>
                         <td>กำไร</td>
-                        <td><?= $sold - $budget ?></td>
+                        <td><b><?= $sold - $budget ?></b></td>
                     </tr>
                 </table>
             </center>
