@@ -193,7 +193,7 @@
             .item {
                 background: transparent;
                 border: none;
-                width: 200px;
+                width: 375px;
                 padding-top: 10px;
             }
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
