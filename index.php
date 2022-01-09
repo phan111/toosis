@@ -23,9 +23,9 @@ if(isset($_POST['submit'])){
         <meta name="HandheldFriendly" content="true" />
         <style>
             .size{
-                width: 50vw;
-                height: 80px;
-                font-size: 30px;
+                width: 48vw;
+                height: 50px;
+                font-size: 20px;
                 border-color: #9bc2af;
             }
             .submit{
@@ -36,16 +36,16 @@ if(isset($_POST['submit'])){
     </head>
     <body>
         <form action="#" method="post">
-            <select name="item" class="size">
-                <?php foreach(get_item() AS $key) : ?>
-                <option value="<?=$key[0]?>"><?=$key[0]?></option>
-                <?php endforeach ; ?>
-            </select>
-            <input name="budget" type="number" placeholder="ต้นทุน" class="size"><br>
-            <input name="sold" type="number" placeholder="ขาย" class="size">
-            <input name="amount" type="number" value="1" step="1" class="size">
-            <input name="date" type="hidden" value="<?=today()?>"><br>
             <center>
+                <select name="item" class="size">
+                    <?php foreach(get_item() AS $key) : ?>
+                    <option value="<?=$key[0]?>"><?=$key[0]?></option>
+                    <?php endforeach ; ?>
+                </select>
+                <input name="budget" type="number" placeholder="ต้นทุน" class="size"><br>
+                <input name="sold" type="number" placeholder="ขาย" class="size">
+                <input name="amount" type="number" value="1" step="1" class="size">
+                <input name="date" type="hidden" value="<?=today()?>"><br>
                 <input type="submit" value="บันทึก" class="size submit">
             </center>
         </form>
