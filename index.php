@@ -12,7 +12,7 @@
             }
 
             body {
-                background: url('assets/bg/photo-1514903796-5d8b9bdc2092.jpg') center no-repeat;
+                background: url('assets/bg/photo-1615799998603-7c6270a45196.jpg') center no-repeat;
                 background-size: cover;
                 color: #333;
                 font-size: 18px;
@@ -196,14 +196,17 @@
                 width: 375px;
                 padding-top: 10px;
             }
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <meta name="HandheldFriendly" content="true" />
+
+            <meta name='viewport'content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/><meta name="HandheldFriendly"content="true"/>
         </style>
     </head>
     <?php
     include('controller.php');
     if (isset($_POST['submit'])) {
         insert($_POST);
+    }
+    if (isset($_POST['rental_submit'])) {
+        rental($_POST);
     }
     ?>
 
@@ -243,6 +246,18 @@
                 </div>
                 <input name="date" type="hidden" value="<?= today() ?>"><br>
             </form>
+            <hr>
+            <br>
+            <form class="registration-form" method="post" action="#">
+                <label class="col-one-half">
+                    <span class="label-text">ค่าที่</span>
+                    <input type="number" name="rental">
+                </label>
+                <div class="text-center">
+                    <button class="submit" name="rental_submit">บันทึก</button>
+                </div>
+            </form>
+            <br>
             <hr>
             <br>
             <center>
@@ -286,10 +301,18 @@
                         <td>ขาย</td>
                         <td><b><?= $sold ?></b></td>
                     </tr>
-                    <tr>
-                        <td>กำไร</td>
-                        <td><b><?= $sold - $budget ?></b></td>
-                    </tr>
+                    <?php foreach (get_rental() as $key) : ?>
+                        <?php if ($key[1] == today()) : ?>
+                            <tr>
+                                <td>ค่าที่</td>
+                                <td><b><?= $key[0] ?></b></td>
+                            </tr>
+                            <tr>
+                                <td>กำไร</td>
+                                <td><b><?= $sold - $budget - $key[0] ?></b></td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </table>
             </center>
         </div>

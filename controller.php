@@ -43,6 +43,30 @@ function insert($values)
     $service->spreadsheets_values->append(spreadsheetId(), "A2:A", $body, $params);
 }
 
+function rental($value)
+{
+    $service = conn_sheet();
+    $rental = $value['rental'];
+    $date = today();
+    $insert = [
+        ["$rental", "$date"]
+    ];
+    $body = new Google_Service_Sheets_ValueRange([
+        'values' => $insert
+    ]);
+    $params = [
+        'valueInputOption' => "RAW"
+    ];
+    $service->spreadsheets_values->append(spreadsheetId(), "ค่าที่!A2:A", $body, $params);
+}
+
+function get_rental(){
+    $service = conn_sheet();
+    $range = "ค่าที่!A61:B";
+    $response = $service->spreadsheets_values->get(spreadsheetId(), $range);
+    return $response->getValues();
+}
+
 function get_item()
 {
     $service = conn_sheet();
