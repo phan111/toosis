@@ -75,6 +75,22 @@ function get_item()
     return $response->getValues();
 }
 
+function add_item()
+{
+    $service = conn_sheet();
+    $item = $_POST['item'];
+    $insert = [
+        ["$item"]
+    ];
+    $body = new Google_Service_Sheets_ValueRange([
+        'values' => $insert
+    ]);
+    $params = [
+        'valueInputOption' => "RAW"
+    ];
+    $service->spreadsheets_values->append(spreadsheetId(), "รายการสินค้า!B23:B", $body, $params);   
+}
+
 function today()
 {
     date_default_timezone_set("Asia/Bangkok");
