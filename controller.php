@@ -97,6 +97,27 @@ function today()
     return date('d/m/Y');
 }
 
+function all_transaction()
+{
+    $service = conn_sheet();
+    $range = "A2:E";
+    $response = $service->spreadsheets_values->get(spreadsheetId(), $range);
+    return $response->getValues();
+}
+
+function all_rental()
+{
+    $service = conn_sheet();
+    $range = "ค่าที่!A2:B";
+    $response = $service->spreadsheets_values->get(spreadsheetId(), $range);
+    return $response->getValues();
+}
+
+function date_conv($date)
+{
+    return date("d/m/Y", strtotime($date));
+}
+
 function test()
 {
     print_r($_POST);

@@ -1,8 +1,8 @@
 <body>
 
     <head>
+        <link rel="stylesheet" href="styles.css"> 
         <meta name='viewport'content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/><meta name="HandheldFriendly"content="true"/>
-        <link rel="stylesheet" href="styles.css">
     </head>
     <?php
     include('controller.php');
@@ -10,6 +10,7 @@
         add_item($_POST);
     }
     ?>
+
     <body>
         <div class="container">
             <header>
@@ -19,7 +20,7 @@
                     </a>
                 </h1>
             </header>
-            <h1 class="text-center">Items</h1>
+            <h1 class="text-center">Look Back</h1>
             <form class="registration-form" method="post" action="#">
                 <label class="col-one-half">
                     <span class="label-text">ชื่อสินค้า</span>
