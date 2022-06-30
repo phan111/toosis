@@ -62,7 +62,7 @@
             <br>
             <hr>
             <br>
-            <center>
+            <center style="max-height:250px;overflow-y:scroll;">
                 <table border="1" cellspacing="0" style="border-color:#fff;font-size:28px;background: rgba(255, 255, 255, 0.25);" width="90%">
                     <thead>
                         <tr>
